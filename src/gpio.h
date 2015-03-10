@@ -6,8 +6,8 @@
  * (c) 2015 Bernd Busse
  */
 
-#ifndef GPIO_H
-#define GPIO_H
+#ifndef __GPIO_H
+#define __GPIO_H
 
 #define FDD1_STP    8   // = GPIO  2 = PIN  3
 #define FDD1_DIR    9   // = GPIO  3 = PIN  5
@@ -23,4 +23,4 @@
 extern int setupFDD();
 extern void toggleFDD(int);
 
-#endif // GPIO_H
+#endif // __GPIO_H
