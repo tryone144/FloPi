@@ -1,0 +1,16 @@
+#
+# FloPi
+#
+# Floppy Music for Raspberry Pi
+#
+# (c) 2015 Bernd Busse
+#
+
+VERSION = 0.1.0
+CC      = /usr/bin/gcc
+CFLAGS  = -Wall -g -DVERSION=\"$(VERSION)\"
+LDFLAGS = 
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
+

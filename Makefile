@@ -6,23 +6,15 @@
 # (c) 2015 Bernd Busse
 #
 
-VERSION = 0.1.0
-CC      = /usr/bin/gcc
-CFLAGS  = -Wall -g -DVERSION=\"$(VERSION)\"
-LDFLAGS = 
+include ./Makefile.rules
 
-OBJ = src/flopi-driver.o src/flopi-gpio.o src/flopi-midi.o
+$(OBJ) = src/*.o
 
-all: $(OBJ)
-	$(CC) $(CFLAGS) -o bin/flopi $(OBJ) $(LDFLAGS)
+all:
+	make -c src/
+	$(CC) $(CCFLAGS) -o /bin/flopi $(OBJ) $(LDFLAGS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $<
+clean:
+	rm -rf bin/
+	make -c src/ clean
 
-#OBJ = datei1.o datei2.o datei3.o datei4.o datei5.o
-#
-#prog: $(OBJ)
-#	        $(CC) $(CFLAGS) -o prog $(OBJ) $(LDFLAGS)
-#
-#%.o: %.c
-#	        $(CC) $(CFLAGS) -c $<
