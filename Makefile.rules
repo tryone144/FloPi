@@ -7,9 +7,10 @@
 #
 
 VERSION = 0.1.0
+MAKE    = /usr/bin/make
 CC      = /usr/bin/gcc
 CFLAGS  = -Wall -g -DVERSION=\"$(VERSION)\"
-LDFLAGS = 
+LDFLAGS = -lwiringPi -lasound 
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<

@@ -10,8 +10,7 @@ include ../Makefile.rules
 
 OBJ = flopi-driver.o flopi-gpio.o flopi-midi.o
 
-flopi:
-	$(OBJ)
+flopi: $(OBJ)
 
 clean:
 	rm -rf $(OBJ)
