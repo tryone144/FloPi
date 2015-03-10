@@ -45,16 +45,27 @@ void setupTimer(int res) {
  * program enty point
  */
 int main() {
+    // Print nice header
+    printf("                       ________      ____  _                    \n");
+    printf("  _______________     / ____/ /___  / __ \\(_)    _______________\n");
+    printf(" /____/____/____/    / /_  / / __ \\/ /_/ / /    /____/____/____/\n");
+    printf("/____/____/____/    / __/ / / /_/ / ____/ /    /____/____/____/ \n");
+    printf("                   /_/   /_/\\____/_/   /_/                      \n");
+    printf("\n");
+
+    printf("DEBUG: Init GPIO stuff\n");
     // Init GPIO-PINS and FDDS
     if (setupFDD() == -1) {
         fprintf(stderr, "ERROR: failed to initialize GPIO.\n");
         return 1;
     }
 
+    printf("DEBUG: Init FDDPeriods and setupTimer\n");
     // Setup musical intervals and Timer
     initFDDPeriods();
     setupTimer(RESOLUTION);
 
+    printf("DEBUG: Setup MIDI stuff\n");
     // Setup MIDI stuff
     snd_seq_t *seq_handle;
     int npfd;
@@ -65,6 +76,7 @@ int main() {
     snd_seq_poll_descriptors(seq_handle, pfd, npfd, POLLIN);
 
     // MAIN LOOP
+    printf("DEBUG: Starting MAIN LOOP");
     while (1) {
         // Read MIDI Events and play them
         if (poll(pfd, npfd, 100000) > 0) {
