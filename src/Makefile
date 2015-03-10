@@ -8,7 +8,7 @@
 
 include ../Makefile.rules
 
-OBJ = flopi-driver.o flopi-gpio.o flopi-midi.o
+OBJ = flopi.o gpio.o player.o
 
 flopi: $(OBJ)
 
