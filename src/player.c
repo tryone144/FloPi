@@ -38,7 +38,7 @@ static int currentTick[] = {0, 0, 0, 0};
  * calculate intervals for FDD-Stepping
  * Returns: nothing
  */
-void initFddPeriods() {
+void initFDDPeriods() {
     for (int i = 0; i < 128; i++) {
         fddPeriod[i] = microPeriod[i] / (RESOLUTION * 2);
     }
@@ -49,7 +49,7 @@ void initFddPeriods() {
  * Reset step counter for each track
  * Returns: nothing
  */
-void resetPeriods() {
+void resetFDDPeriods() {
     // Reset each Track
     for (int i = 0; i < MAX_TRACKS; i++) {
         currentPeriod[i] = 0;
@@ -69,7 +69,7 @@ void playerTick(int signum) {
         if (currentPeriod[i]) { // Playing a note
             currentTick[i]++; // increment tick counter
             if (currentTick[i] >= currentPeriod[i]) { // Note interval over -> make noise!
-                toogleFDD(i); // Do 1 Step => MUSIC!!!
+                toggleFDD(i); // Do 1 Step => MUSIC!!!
                 currentTick[i] = 0; // Start again
             }
         }
@@ -87,7 +87,7 @@ snd_seq_t* playerGetHandle() {
     int err;
 
     // Open ALSA sequencer
-    if (err = snd_seq_open(&seq_handle, "default", SND_SEQ_OPEN_INPUT, 0) < 0) {
+    if ((err = snd_seq_open(&seq_handle, "default", SND_SEQ_OPEN_INPUT, 0)) < 0) {
         fprintf(stderr, "ERROR: can't open ALSA sequencer: %s\n", snd_strerror(err));
         exit(1);
     }

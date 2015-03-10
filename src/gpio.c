@@ -89,7 +89,7 @@ static void resetAll() {
     resetFDDPeriods();
 }
 
-void toogleFDD(int trackId) {
+void toggleFDD(int trackId) {
     int dev;
     int dir;
 

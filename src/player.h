@@ -6,8 +6,8 @@
  * (c) 2015 Bernd Busse
  */
 
- #ifndef MIDISERVER_H
- #define MIDISERVER_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include <alsa/asoundlib.h>
 
@@ -26,4 +26,4 @@ extern void playerTick(int);
 extern snd_seq_t* playerGetHandle();
 extern void playerMidiAction(snd_seq_t*);
 
-#endif // MIDISERVER_H
+#endif // PLAYER_H
