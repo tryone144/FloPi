@@ -6,12 +6,10 @@
  * (c) 2015 Bernd Busse
  */
 
-#include <signal.h>
 #include <stdio.h>
-//#include <fcntl.h>
-//#include <string.h>
+#include <signal.h>
+#include <alloca.h>
 #include <sys/time.h>
-//#include <unistd.h>
 #include <alsa/asoundlib.h>
 
 #include "gpio.h"
@@ -54,7 +52,7 @@ int main() {
     }
 
     // Setup musical intervals and Timer
-    initFddPeriods();
+    initFDDPeriods();
     setupTimer(RESOLUTION);
 
     // Setup MIDI stuff
