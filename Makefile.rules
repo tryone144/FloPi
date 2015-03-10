@@ -9,7 +9,7 @@
 VERSION = 0.1.0
 MAKE    = /usr/bin/make
 CC      = /usr/bin/gcc
-CFLAGS  = -Wall -g -std=c99 -DVERSION=\"$(VERSION)\"
+CFLAGS  = -Wall -g -std=gnu99 -DVERSION=\"$(VERSION)\"
 LDFLAGS = -lwiringPi -lasound 
 
 %.o: %.c

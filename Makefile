@@ -21,7 +21,7 @@ $(BUILDSRC):
 
 flopi: $(SRCDIRS)
 	mkdir -p $(BINDIRS)
-	$(CC) $(CCFLAGS) -o bin/flopi $(SRCDIRS:%=%/*.o) $(LDFLAGS)
+	mv src/flopi bin/flopi
 
 clean: $(CLEANSRC) $(CLEANBIN)
 $(CLEANSRC):
